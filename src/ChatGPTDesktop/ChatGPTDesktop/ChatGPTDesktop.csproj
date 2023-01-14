@@ -9,7 +9,16 @@
     <PackageIcon>asterisk_orange.png</PackageIcon>
     <AssemblyVersion>1.0.0.5</AssemblyVersion>
     <FileVersion>1.0.0.5</FileVersion>
+    <ApplicationIcon>Designcontest-Ecommerce-Business-Chat.ico</ApplicationIcon>
+    <Product>Chat GPT Desktop</Product>
+    <IsPublishable>True</IsPublishable>
+    <PackageId>$(AssemblyName)</PackageId>
+    <Authors>Chat GPT Desktop</Authors>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Designcontest-Ecommerce-Business-Chat.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Include="..\..\..\..\..\Icons\icons\asterisk_orange.png">
