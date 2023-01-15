@@ -42,7 +42,7 @@ namespace ChatGPTDesktop
             ShowForm();
         }
 
-        private void ShowForm()
+        public void ShowForm()
         {
             this.Show();
             this.WindowState = FormWindowState.Normal;
