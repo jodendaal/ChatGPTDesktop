@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="ChatGPTDesktop.exe" version="1.0.0.16" publicKeyToken="55eeb31526417564" language="neutral" processorArchitecture="msil" type="win32" />
-  <description asmv2:iconFile="Designcontest-Ecommerce-Business-Chat.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <asmv1:assemblyIdentity name="ChatGPTDesktop.exe" version="1.0.0.21" publicKeyToken="55eeb31526417564" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="Designcontest-Ecommerce-Business-Chat.ico" asmv2:publisher="TimDoesTech" asmv2:product="Chat GPT Desktop" asmv2:supportUrl="https://github.com/jodendaal/ChatGPTDesktop" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
     <assemblyIdentity name="Launcher" version="7.0.0.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="Launcher.exe" parameters="" />
   </entryPoint>
+  <co.v1:useManifestForTrust xmlns="urn:schemas-microsoft-com:asm.v1" />
   <trustInfo>
     <security>
       <applicationRequestMinimum>
@@ -54,22 +55,22 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="ChatGPTDesktop.deps.json" size="1668">
+  <file name="ChatGPTDesktop.deps.json" size="2058">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>XGyRQsVDfb4qizg3q9vVmIX5esSWfGtyyrwJgJF05t0=</dsig:DigestValue>
+      <dsig:DigestValue>TIe/QZzu8oP3jyvQQg91TtUF8VNX3JGYU2r19z13q8c=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="ChatGPTDesktop.dll" size="603560">
+  <file name="ChatGPTDesktop.dll" size="604584">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>OIhnxNRoIVbc06mEm//r1TvqKnxg060Prm7wMBelB/0=</dsig:DigestValue>
+      <dsig:DigestValue>EAEK3ysupYhV2J52UCs+6f8F4G1miDPagiS8u/ZBtmY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="ChatGPTDesktop.exe" size="345512">
@@ -126,6 +127,15 @@
       <dsig:DigestValue>0XxZX4Uu0XII7A3LxPawKoPdJvXJ9b4NxQfJEMkMEkM=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="runtimes\win-arm64\native\WebView2Loader.dll" size="132024">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>9YHFbUBmGhfyjJZliVb6q64axA9V7e4JvMHkxTeEico=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="runtimes\win-x64\native\WebView2Loader.dll" size="158648">
     <hash>
       <dsig:Transforms>
@@ -135,13 +145,13 @@
       <dsig:DigestValue>cSfyDaoKCnThIKt0I90bMMRZCPjukp8MbNIxK0HFvd8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="WebView2Loader.dll" size="158648">
+  <file name="runtimes\win-x86\native\WebView2Loader.dll" size="115128">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>cSfyDaoKCnThIKt0I90bMMRZCPjukp8MbNIxK0HFvd8=</dsig:DigestValue>
+      <dsig:DigestValue>V6vvBiLRzWRuue/hzVjI5ZGSpR+8S7oKb559s+maw8E=</dsig:DigestValue>
     </hash>
   </file>
-<publisherIdentity name="CN=TIMSPC\justi" issuerKeyHash="ca8da3c42f3da6ba4b28e8185776cd376cc57ef6" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>mUvfo5OIyVEIzOntcrG/fCqFPca1EboXmSDhoItrU5o=</DigestValue></Reference></SignedInfo><SignatureValue>nYnijkMy6nRPx6risw2rFU6Zo/7ERbN5wFZT4/pyi/qjjEGZU1u1tw1SYNFXv/z6lyCYsnXz+qjtG5hYw3zWAeCfRoZz3vKeHGugH7Bd1OwdJQhsGdAWGnC9712apzV7T0UpMhe6/rlYvohBoJzXjZG8B8L16NtyybXsQQElXpI=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>xvkW0o04g8uLe5cT73yD8HigJRD6U9fr5IAeoWrmtWQ7zoHMaYKdXUTPZh+u3vcXFi82FhKxIkCqM5gzt1D29xlNzPdB1aWwZXokG5NrFuucY592BApyw86JPoOzeWtWi8D2NLwpy2VOalLKFo5GLhn7OpGyJjziWUSCe4rvOLU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="9a536b8ba0e1209917ba11b5c63d852a7cbfb172ede9cc0851c98893a3df4b99" Description="" Url=""><as:assemblyIdentity name="ChatGPTDesktop.exe" version="1.0.0.16" publicKeyToken="55eeb31526417564" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=TIMSPC\justi</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>WsDwXC6uEF0+CRm4/Xt3AQ/jBYMPF21uj4q4ctQ0Gbk=</DigestValue></Reference></SignedInfo><SignatureValue>cezsqOCStyplZtuMIAK8y4vnbcJOoO+OJe3kfgTLk6HjDPBxMqaRsQXE5uCbQsdxTZ2xihAsHGS4HCXqWQKpVMpo1vrr35DnReSOucfX9d/C69wmy0NLKwf7rfQ6zJph59HhqsZl97ivouxzRSSlHAJe2ONgQycQcruWJKw/KC4=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>xvkW0o04g8uLe5cT73yD8HigJRD6U9fr5IAeoWrmtWQ7zoHMaYKdXUTPZh+u3vcXFi82FhKxIkCqM5gzt1D29xlNzPdB1aWwZXokG5NrFuucY592BApyw86JPoOzeWtWi8D2NLwpy2VOalLKFo5GLhn7OpGyJjziWUSCe4rvOLU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIByTCCATKgAwIBAgIQHjbTRBgJgZ1BLIxuHqLQWTANBgkqhkiG9w0BAQsFADAjMSEwHwYDVQQDHhgAVABJAE0AUwBQAEMAXABqAHUAcwB0AGkwHhcNMjMwMTE1MTYwMjM3WhcNMjQwMTE1MjIwMjM3WjAjMSEwHwYDVQQDHhgAVABJAE0AUwBQAEMAXABqAHUAcwB0AGkwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMb5FtKNOIPLi3uXE+98g/B4oCUQ+lPX6+SAHqFq5rVkO86BzGmCnV1Ez2Yfrt73FxYvNhYSsSJAqjOYM7dQ9vcZTcz3QdWlsGV6JBuTaxbrnGOfdgQKcsPOiT6Ds3lrVovA9jS8KctlTmpSyhaORi4Z+zqRsiY84llEgnuK7zi1AgMBAAEwDQYJKoZIhvcNAQELBQADgYEAlXxBVAyrEz+nBDwd/yCJpLdX3h53fttpDUZwt7mC5dXPtK1eT4MzLYnWMaNOFpF3m4bx9bqX3hQwtUmWuaPvrTeGyu+nhJwhyKuwCfbRSRJLsFCbT2Ld5e6ajniDygym92PFc89KpbNp/56Btd20bZ4ZRipcZS3lw6IBgPF5SoE=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
+<publisherIdentity name="CN=TIMSPC\justi" issuerKeyHash="ca8da3c42f3da6ba4b28e8185776cd376cc57ef6" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>prm9GZFcxBBzEDuAmDXiQiRCSOdC67h9f5RG6EK78LQ=</DigestValue></Reference></SignedInfo><SignatureValue>dK69JDt1tDS4G95aT8E8abBuMetPFdP73vStTpLToImgoWzZiaktZREAn9UkHfMzLtBL95DiHSnVqEcQHbvYSFRvV5SPriev01PDknITeqNbThcbbaHlZzJ21yYWqVCCvSE23z3EJsHcQ1PVGRbogRW46dZp3kIPXDnGn0M5CIY=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>xvkW0o04g8uLe5cT73yD8HigJRD6U9fr5IAeoWrmtWQ7zoHMaYKdXUTPZh+u3vcXFi82FhKxIkCqM5gzt1D29xlNzPdB1aWwZXokG5NrFuucY592BApyw86JPoOzeWtWi8D2NLwpy2VOalLKFo5GLhn7OpGyJjziWUSCe4rvOLU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="b4f0bb42e846947f7db8eb42e748422442e23598803b107310c45c9119bdb9a6" Description="" Url=""><as:assemblyIdentity name="ChatGPTDesktop.exe" version="1.0.0.21" publicKeyToken="55eeb31526417564" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=TIMSPC\justi</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>LkExy0xHuz3LAOWyBzTx8uK50WI/S7amyZsJEEBQ3jI=</DigestValue></Reference></SignedInfo><SignatureValue>YbC18x2v5+CxY6a4ExkYTa2FvJaVLYhAgedsDVwVuOMLY4BG0c+ZdDUY1bRasp921uNOnjiyKLwvE7VIyxGoTsuBLWl5jeUQoSN2WnWKTCpQutXlbGDZbGiccv/1XaOW76nU0qZOg6rO2zLks7TQ5eQGAOGJdAAokJpFrgHgQZI=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>xvkW0o04g8uLe5cT73yD8HigJRD6U9fr5IAeoWrmtWQ7zoHMaYKdXUTPZh+u3vcXFi82FhKxIkCqM5gzt1D29xlNzPdB1aWwZXokG5NrFuucY592BApyw86JPoOzeWtWi8D2NLwpy2VOalLKFo5GLhn7OpGyJjziWUSCe4rvOLU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIByTCCATKgAwIBAgIQHjbTRBgJgZ1BLIxuHqLQWTANBgkqhkiG9w0BAQsFADAjMSEwHwYDVQQDHhgAVABJAE0AUwBQAEMAXABqAHUAcwB0AGkwHhcNMjMwMTE1MTYwMjM3WhcNMjQwMTE1MjIwMjM3WjAjMSEwHwYDVQQDHhgAVABJAE0AUwBQAEMAXABqAHUAcwB0AGkwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMb5FtKNOIPLi3uXE+98g/B4oCUQ+lPX6+SAHqFq5rVkO86BzGmCnV1Ez2Yfrt73FxYvNhYSsSJAqjOYM7dQ9vcZTcz3QdWlsGV6JBuTaxbrnGOfdgQKcsPOiT6Ds3lrVovA9jS8KctlTmpSyhaORi4Z+zqRsiY84llEgnuK7zi1AgMBAAEwDQYJKoZIhvcNAQELBQADgYEAlXxBVAyrEz+nBDwd/yCJpLdX3h53fttpDUZwt7mC5dXPtK1eT4MzLYnWMaNOFpF3m4bx9bqX3hQwtUmWuaPvrTeGyu+nhJwhyKuwCfbRSRJLsFCbT2Ld5e6ajniDygym92PFc89KpbNp/56Btd20bZ4ZRipcZS3lw6IBgPF5SoE=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
