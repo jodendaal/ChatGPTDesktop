@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="ChatGPTDesktop.exe" version="1.0.0.24" publicKeyToken="55eeb31526417564" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="Designcontest-Ecommerce-Business-Chat.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Launcher" version="7.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Launcher.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Launcher.exe" size="16808">
+      <assemblyIdentity name="Launcher" version="7.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>rx00fbdTz36yvW4FbnMr53Ix39nHffyNig+qOhMmlT0=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="ChatGPTDesktop.deps.json" size="1668">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>XGyRQsVDfb4qizg3q9vVmIX5esSWfGtyyrwJgJF05t0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ChatGPTDesktop.dll" size="603560">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>OIhnxNRoIVbc06mEm//r1TvqKnxg060Prm7wMBelB/0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ChatGPTDesktop.exe" size="345512">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>XzfbD3rEQHHwpyW7PsxBGVocmE8ko+KBUH3BWCHrR6I=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ChatGPTDesktop.runtimeconfig.json" size="372">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>HsoPDHAHCqg7tgnkt0mybctECXhDJgMnJjlHIiJKCYo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Designcontest-Ecommerce-Business-Chat.ico" size="196329">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>iBZt3Wi5kTzzAu4Pvs/vXPfL8lpgmrMxskLIavOJ5rc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Microsoft.Web.WebView2.Core.dll" size="401848">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>XeS6ths68chHMPv6ItoHIlP8CTcF3X7ySTvivQ9772c=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Microsoft.Web.WebView2.WinForms.dll" size="37304">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>de0JwsdDamO/nA9DzSe7b/ei0UAOAR8wZl/D86MvWEQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Microsoft.Web.WebView2.Wpf.dll" size="44000">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>0XxZX4Uu0XII7A3LxPawKoPdJvXJ9b4NxQfJEMkMEkM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="runtimes\win-x64\native\WebView2Loader.dll" size="158648">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>cSfyDaoKCnThIKt0I90bMMRZCPjukp8MbNIxK0HFvd8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="WebView2Loader.dll" size="158648">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>cSfyDaoKCnThIKt0I90bMMRZCPjukp8MbNIxK0HFvd8=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=TIMSPC\justi" issuerKeyHash="ca8da3c42f3da6ba4b28e8185776cd376cc57ef6" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>A7aycpkKl2Ccjr9Bo6KkOPkNzeKfO2c9VA9hC+1Smtc=</DigestValue></Reference></SignedInfo><SignatureValue>ng6UyUQg6867dzJWS/ykPEV9anaHUynULtTTU2cfvRcCJ3eAgqDdG5CDx07WKz0wHSP8TU7uEUyIJiJBHXRDNqioDoaTOcELDNPUsHBx0fi4gdRpzdxduvY7IHn2IDrRc31tBEVEDCBuIitY3QoSMX4ykduuCe6FtgSbrEDPnVw=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>xvkW0o04g8uLe5cT73yD8HigJRD6U9fr5IAeoWrmtWQ7zoHMaYKdXUTPZh+u3vcXFi82FhKxIkCqM5gzt1D29xlNzPdB1aWwZXokG5NrFuucY592BApyw86JPoOzeWtWi8D2NLwpy2VOalLKFo5GLhn7OpGyJjziWUSCe4rvOLU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="d79a52ed0b610f543d673b9fe2cd0df938a4a2a341bf8e9c60970a9972b2b603" Description="" Url=""><as:assemblyIdentity name="ChatGPTDesktop.exe" version="1.0.0.24" publicKeyToken="55eeb31526417564" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=TIMSPC\justi</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>nJw7UmWafQtRnC91KjQbaQ7eESGhFZ3bEs/kCHVMa88=</DigestValue></Reference></SignedInfo><SignatureValue>wX5RTo3REXKElENWS9DmXImOkJQeW/svA2c28tNKWqU5MTyJE1PPXPJwhG0R8BQsp0bAV6thgLwHM/jNNBjChUqh/niRnqxDyH8AmYB39l+5vdWDNI8WBEor6Dkma++tvrAhbjeRATI6o5exMjCGQU1sfWjAqxvcSqDbcBdaHsg=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>xvkW0o04g8uLe5cT73yD8HigJRD6U9fr5IAeoWrmtWQ7zoHMaYKdXUTPZh+u3vcXFi82FhKxIkCqM5gzt1D29xlNzPdB1aWwZXokG5NrFuucY592BApyw86JPoOzeWtWi8D2NLwpy2VOalLKFo5GLhn7OpGyJjziWUSCe4rvOLU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIByTCCATKgAwIBAgIQHjbTRBgJgZ1BLIxuHqLQWTANBgkqhkiG9w0BAQsFADAjMSEwHwYDVQQDHhgAVABJAE0AUwBQAEMAXABqAHUAcwB0AGkwHhcNMjMwMTE1MTYwMjM3WhcNMjQwMTE1MjIwMjM3WjAjMSEwHwYDVQQDHhgAVABJAE0AUwBQAEMAXABqAHUAcwB0AGkwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMb5FtKNOIPLi3uXE+98g/B4oCUQ+lPX6+SAHqFq5rVkO86BzGmCnV1Ez2Yfrt73FxYvNhYSsSJAqjOYM7dQ9vcZTcz3QdWlsGV6JBuTaxbrnGOfdgQKcsPOiT6Ds3lrVovA9jS8KctlTmpSyhaORi4Z+zqRsiY84llEgnuK7zi1AgMBAAEwDQYJKoZIhvcNAQELBQADgYEAlXxBVAyrEz+nBDwd/yCJpLdX3h53fttpDUZwt7mC5dXPtK1eT4MzLYnWMaNOFpF3m4bx9bqX3hQwtUmWuaPvrTeGyu+nhJwhyKuwCfbRSRJLsFCbT2Ld5e6ajniDygym92PFc89KpbNp/56Btd20bZ4ZRipcZS3lw6IBgPF5SoE=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
