@@ -1,17 +1,39 @@
+using ChatGPTDesktop.Services;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using System.Reflection;
+
 namespace ChatGPTDesktop
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
+        public static IServiceProvider ServiceProvider { get; private set; }
+      
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            ServiceProvider = CreateHostBuilder().Build().Services;
+            Application.Run(ServiceProvider.GetService<Form1>());
+        }
+       
+        static IHostBuilder CreateHostBuilder()
+        {
+            return Host.CreateDefaultBuilder()
+                .ConfigureServices((context, services) => {
+                    services.AddSingleton<IFormFactory,FormFactory>();
+
+                    //Add all forms
+                    var forms = typeof(Program).Assembly
+                    .GetTypes()
+                    .Where(t => t.BaseType ==  typeof(Form))
+                    .ToList();
+
+                    forms.ForEach(form =>
+                    {
+                        services.AddTransient(form);
+                    });
+                });
         }
     }
 }

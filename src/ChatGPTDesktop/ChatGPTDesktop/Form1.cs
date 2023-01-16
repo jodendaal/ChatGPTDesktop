@@ -1,12 +1,16 @@
+using ChatGPTDesktop.Services;
+
 namespace ChatGPTDesktop
 {
     public partial class Form1 : Form
     {
         bool _allowedToClose;
+        private readonly IFormFactory _formFactory;
 
-        public Form1()
+        public Form1(IFormFactory formFactory)
         {
             InitializeComponent();
+            _formFactory = formFactory;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -64,6 +68,12 @@ namespace ChatGPTDesktop
         private void notifyIcon1_DoubleClick(object sender, EventArgs e)
         {
             ShowForm();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            var form = _formFactory.Create<Form2>();
+            form?.Show();
         }
     }
 }
