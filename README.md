@@ -6,7 +6,7 @@ https://youtu.be/tGzhrmqU-2A
 
 
 ## Download Installer
-## [Installer](https://raw.githubusercontent.com/jodendaal/ChatGPTDesktop/main/deploy/ChatGPTDesktop.zip)
+## [Installer](https://jodendaal.github.io/ChatGPTDesktop/)
 
 
 ## Icons
