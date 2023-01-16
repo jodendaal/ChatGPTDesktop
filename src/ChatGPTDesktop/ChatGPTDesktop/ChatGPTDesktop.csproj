@@ -38,6 +38,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Winforms.Routing\Winforms.Routing.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Form2.cs">
       <SubType>Form</SubType>
     </Compile>

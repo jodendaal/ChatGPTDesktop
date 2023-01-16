@@ -1,8 +1,8 @@
 using Winforms.Routing;
 
-namespace ChatGPTDesktop
+namespace Winforms.Routing.Tests
 {
-    [Route("product}")]
+    [Route("product")]
     public partial class Form2 : Form
     {
         public Form2()
@@ -11,7 +11,7 @@ namespace ChatGPTDesktop
         }
 
         [Route("product/{productId}")]
-        public void Show(int productId)
+        public void ShowForm(int productId)
         {
 
         }
