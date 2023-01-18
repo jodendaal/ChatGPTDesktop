@@ -33,6 +33,8 @@
             this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnRefresh = new System.Windows.Forms.ToolStripButton();
+            this.btnShowActPrompts = new System.Windows.Forms.ToolStripButton();
+            this.btnAddPrompt = new System.Windows.Forms.ToolStripButton();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnShow = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,7 +42,8 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnShowActPrompts = new System.Windows.Forms.ToolStripButton();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnEditPrompt = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.webView)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -49,6 +52,7 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // webView
@@ -67,7 +71,8 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnRefresh,
-            this.btnShowActPrompts});
+            this.btnShowActPrompts,
+            this.btnAddPrompt});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(717, 25);
@@ -83,6 +88,26 @@
             this.btnRefresh.Size = new System.Drawing.Size(23, 22);
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnShowActPrompts
+            // 
+            this.btnShowActPrompts.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnShowActPrompts.Image = ((System.Drawing.Image)(resources.GetObject("btnShowActPrompts.Image")));
+            this.btnShowActPrompts.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnShowActPrompts.Name = "btnShowActPrompts";
+            this.btnShowActPrompts.Size = new System.Drawing.Size(23, 22);
+            this.btnShowActPrompts.Text = "toolStripButton1";
+            this.btnShowActPrompts.Click += new System.EventHandler(this.btnShowActPrompts_Click);
+            // 
+            // btnAddPrompt
+            // 
+            this.btnAddPrompt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnAddPrompt.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPrompt.Image")));
+            this.btnAddPrompt.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAddPrompt.Name = "btnAddPrompt";
+            this.btnAddPrompt.Size = new System.Drawing.Size(23, 22);
+            this.btnAddPrompt.Text = "Add Prompt";
+            this.btnAddPrompt.Click += new System.EventHandler(this.btnAddPrompt_Click);
             // 
             // notifyIcon1
             // 
@@ -158,17 +183,21 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(245, 450);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             // 
-            // btnShowActPrompts
+            // contextMenuStrip2
             // 
-            this.btnShowActPrompts.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnShowActPrompts.Image = ((System.Drawing.Image)(resources.GetObject("btnShowActPrompts.Image")));
-            this.btnShowActPrompts.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnShowActPrompts.Name = "btnShowActPrompts";
-            this.btnShowActPrompts.Size = new System.Drawing.Size(23, 22);
-            this.btnShowActPrompts.Text = "toolStripButton1";
-            this.btnShowActPrompts.Click += new System.EventHandler(this.btnShowActPrompts_Click);
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnEditPrompt});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(181, 48);
+            // 
+            // btnEditPrompt
+            // 
+            this.btnEditPrompt.Name = "btnEditPrompt";
+            this.btnEditPrompt.Size = new System.Drawing.Size(180, 22);
+            this.btnEditPrompt.Text = "Edit";
             // 
             // Form1
             // 
@@ -191,6 +220,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,5 +239,8 @@
         private DataGridView dataGridView1;
         private TextBox txtSearch;
         private ToolStripButton btnShowActPrompts;
+        private ToolStripButton btnAddPrompt;
+        private ContextMenuStrip contextMenuStrip2;
+        private ToolStripMenuItem btnEditPrompt;
     }
 }

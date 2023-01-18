@@ -1,8 +1,13 @@
 ﻿namespace ChatGPTDesktop.Models
 {
-    internal class ActPrompt
+    public class ActPrompt
     {
-        public string Act { get; set; }
-        public string Prompt { get; set; }
+        public ActPrompt() 
+        { 
+            Id = Guid.NewGuid().ToString();
+        }
+        public string Id { get; init; }
+        public string Act { get; init; }
+        public string Prompt { get; init; }
     }
 }

@@ -21,14 +21,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Designcontest-Ecommerce-Business-Chat.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="..\..\..\..\..\Icons\icons\asterisk_orange.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
+    <None Remove="asterisk_orange.ico" />
+    <None Remove="comments32x32.ico" />
+    <None Remove="Designcontest-Ecommerce-Business-Chat.ico" />
   </ItemGroup>
 
   <ItemGroup>

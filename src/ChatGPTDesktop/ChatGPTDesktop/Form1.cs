@@ -8,9 +8,12 @@ namespace ChatGPTDesktop
     {
         bool _allowedToClose;
         List<ActPrompt> _actPrompts = new List<ActPrompt>();
-        public Form1()
+        private readonly PromptHttpClient _promptClient;
+        ActPrompt _selectedItem;
+        public Form1(PromptHttpClient promptClient)
         {
             InitializeComponent();
+            _promptClient = promptClient;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -32,8 +35,23 @@ namespace ChatGPTDesktop
             notifyIcon1.ContextMenuStrip = contextMenuStrip1;
             btnShow.Click += BtnShow_Click;
             btnQuit.Click += BtnQuit_Click;
+            btnEditPrompt.Click += BtnEditPrompt_Click;
             LoadAsync();
 
+        }
+
+        private void BtnEditPrompt_Click(object sender, EventArgs e)
+        {
+            using (frmAddPromptDialog addPrompt = new frmAddPromptDialog())
+            {
+                if (addPrompt.ShowDialog(_selectedItem) == DialogResult.OK)
+                {
+                    var act = addPrompt.Prompt;
+                    _actPrompts[_actPrompts.IndexOf(_selectedItem)] = act;
+                    dataGridView1.RefreshEdit();// = _actPrompts;
+                    dataGridView1.Refresh();
+                }
+            }
         }
 
         private void BtnQuit_Click(object? sender, EventArgs e)
@@ -77,8 +95,7 @@ namespace ChatGPTDesktop
 
         private async void LoadAsync()
         {
-            PromptHttpClient p = new PromptHttpClient();
-            _actPrompts = await p.GetPrompts();
+            _actPrompts = await _promptClient.GetPrompts();
 
             dataGridView1.DataSource = _actPrompts;
             dataGridView1.Columns["Prompt"].Visible = false;
@@ -96,20 +113,15 @@ namespace ChatGPTDesktop
 
         private void AddScript()
         {
-            var text = @"function sayHello(message) {
-
-                      
-
-                        document.getElementsByTagName(""textarea"")[0].value = message;
-                    
-                    }";
+            var text = @"function setMessageText(message) {
+                            document.getElementsByTagName(""textarea"")[0].value = message;
+                        }";
             webView.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync(text);
         }
 
         private void InjectPromptText(string promptText)
         {
-           webView.CoreWebView2.ExecuteScriptAsync($@"sayHello('{promptText}')");
-            //webView.CoreWebView2.ExecuteScriptAsync($@"sayHello('hi')");
+           webView.CoreWebView2.ExecuteScriptAsync($@"setMessageText('{promptText}')");
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -132,6 +144,28 @@ namespace ChatGPTDesktop
         private void btnShowActPrompts_Click(object sender, EventArgs e)
         {
             splitContainer1.Panel1Collapsed = !splitContainer1.Panel1Collapsed;
+        }
+
+        private void btnAddPrompt_Click(object sender, EventArgs e)
+        {
+            using (frmAddPromptDialog addPrompt = new frmAddPromptDialog())
+            {
+                if (addPrompt.ShowDialog() == DialogResult.OK)
+                {
+                    var act = addPrompt.Prompt;
+                }
+            }
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
+            {
+                dataGridView1.ClearSelection();
+                dataGridView1.Rows[e.RowIndex].Selected = true;
+                contextMenuStrip2.Show(Cursor.Position.X, Cursor.Position.Y);
+                _selectedItem = dataGridView1.Rows[e.RowIndex].DataBoundItem as ActPrompt;
+            }
         }
     }
 }
