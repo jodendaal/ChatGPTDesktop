@@ -1,13 +1,20 @@
 ﻿namespace ChatGPTDesktop.Models
 {
-    public class ActPrompt
+
+    public abstract class BaseEntity
     {
-        public ActPrompt() 
-        { 
-            Id = Guid.NewGuid().ToString();
-        }
-        public string Id { get; init; }
+        public abstract string Id();
+        
+    }
+
+    public class ActPrompt : BaseEntity
+    {
         public string Act { get; init; }
         public string Prompt { get; init; }
+
+        public override string Id()
+        {
+            return Act;
+        }
     }
 }

@@ -1,6 +1,6 @@
 using ChatGPTDesktop.Models;
+using ChatGPTDesktop.Services;
 using System.Data;
-using System.Windows.Forms;
 
 namespace ChatGPTDesktop
 {
@@ -9,11 +9,13 @@ namespace ChatGPTDesktop
         bool _allowedToClose;
         List<ActPrompt> _actPrompts = new List<ActPrompt>();
         private readonly PromptHttpClient _promptClient;
+        private readonly IPromptsRespository _promptsRespository;
         ActPrompt _selectedItem;
-        public Form1(PromptHttpClient promptClient)
+        public Form1(PromptHttpClient promptClient, IPromptsRespository promptsRespository)
         {
             InitializeComponent();
             _promptClient = promptClient;
+            _promptsRespository = promptsRespository;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -37,7 +39,6 @@ namespace ChatGPTDesktop
             btnQuit.Click += BtnQuit_Click;
             btnEditPrompt.Click += BtnEditPrompt_Click;
             LoadAsync();
-
         }
 
         private void BtnEditPrompt_Click(object sender, EventArgs e)
@@ -47,6 +48,7 @@ namespace ChatGPTDesktop
                 if (addPrompt.ShowDialog(_selectedItem) == DialogResult.OK)
                 {
                     var act = addPrompt.Prompt;
+                    _promptsRespository.Save(act);
                     _actPrompts[_actPrompts.IndexOf(_selectedItem)] = act;
                     dataGridView1.RefreshEdit();// = _actPrompts;
                     dataGridView1.Refresh();
@@ -95,7 +97,12 @@ namespace ChatGPTDesktop
 
         private async void LoadAsync()
         {
-            _actPrompts = await _promptClient.GetPrompts();
+            _actPrompts = _promptsRespository.GetAll();
+            if(_actPrompts.Count == 0)
+            {
+                _actPrompts = await _promptClient.GetPrompts();
+                _promptsRespository.SaveAll(_actPrompts);
+            }
 
             dataGridView1.DataSource = _actPrompts;
             dataGridView1.Columns["Prompt"].Visible = false;
@@ -153,6 +160,11 @@ namespace ChatGPTDesktop
                 if (addPrompt.ShowDialog() == DialogResult.OK)
                 {
                     var act = addPrompt.Prompt;
+                    _promptsRespository.Save(act);
+
+                    _actPrompts.Insert(0,act);
+                    dataGridView1.RefreshEdit();
+                    dataGridView1.Refresh();
                 }
             }
         }

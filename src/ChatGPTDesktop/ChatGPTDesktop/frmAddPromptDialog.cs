@@ -4,13 +4,11 @@ namespace ChatGPTDesktop
 {
     public partial class frmAddPromptDialog : Form
     {
-        private string _id = Guid.NewGuid().ToString();
         public ActPrompt Prompt { get {
                 return new ActPrompt()
                 {
                     Act = textBox1.Text,
                     Prompt = textBox2.Text,
-                    Id = _id
                 };
             } 
         }
@@ -32,7 +30,6 @@ namespace ChatGPTDesktop
         {
             textBox1.Text = prompt.Act;
             textBox2.Text= prompt.Prompt;
-            _id = prompt.Id;
             return this.ShowDialog();
         }
 

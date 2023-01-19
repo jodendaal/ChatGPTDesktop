@@ -1,3 +1,4 @@
+using ChatGPTDesktop.Services;
 using NamedPipes.Helper;
 using System.Windows.Forms;
 
@@ -20,13 +21,12 @@ namespace ChatGPTDesktop
 
             App.SingleInstance(nameof(ChatGPTDesktop), () =>
             {
-                _form = new Form1(new PromptHttpClient(new HttpClient()));
+                _form = new Form1(new PromptHttpClient(new HttpClient()),new PromptsRespository());
                 Application.Run(_form);
             }, 
             (message) => {
                 _form.ShowForm();
             });
-
            
         }
     }
