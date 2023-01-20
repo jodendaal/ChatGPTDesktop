@@ -21,7 +21,7 @@ namespace ChatGPTDesktop
 
             App.SingleInstance(nameof(ChatGPTDesktop), () =>
             {
-                _form = new Form1(new PromptHttpClient(new HttpClient()),new PromptsRespository());
+                _form = new Form1(new PromptHttpClient(new HttpClient()),new AwsomePromptsRespository(),new MyPromptsRespository());
                 Application.Run(_form);
             }, 
             (message) => {

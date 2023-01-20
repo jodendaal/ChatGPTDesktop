@@ -8,5 +8,6 @@ namespace ChatGPTDesktop.Services
         List<TEntity> GetAll();
         void Save(TEntity item);
         void SaveAll(List<TEntity> items);
+        public void Delete(TEntity item);
     }
 }

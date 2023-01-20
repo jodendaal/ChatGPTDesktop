@@ -40,10 +40,13 @@
             this.btnShow = new System.Windows.Forms.ToolStripMenuItem();
             this.btnQuit = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rdMyPrompts = new System.Windows.Forms.RadioButton();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnEditPrompt = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnDeletePrompt = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.webView)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -145,6 +148,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.radioButton2);
+            this.splitContainer1.Panel1.Controls.Add(this.rdMyPrompts);
             this.splitContainer1.Panel1.Controls.Add(this.txtSearch);
             this.splitContainer1.Panel1.Controls.Add(this.dataGridView1);
             // 
@@ -155,49 +160,82 @@
             this.splitContainer1.SplitterDistance = 245;
             this.splitContainer1.TabIndex = 2;
             // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(108, 3);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(119, 19);
+            this.radioButton2.TabIndex = 3;
+            this.radioButton2.Text = "Awsome Prompts";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.awsomePromptChanged_CheckedChanged);
+            // 
+            // rdMyPrompts
+            // 
+            this.rdMyPrompts.AutoSize = true;
+            this.rdMyPrompts.Checked = true;
+            this.rdMyPrompts.Location = new System.Drawing.Point(12, 3);
+            this.rdMyPrompts.Name = "rdMyPrompts";
+            this.rdMyPrompts.Size = new System.Drawing.Size(90, 19);
+            this.rdMyPrompts.TabIndex = 2;
+            this.rdMyPrompts.TabStop = true;
+            this.rdMyPrompts.Text = "My Prompts";
+            this.rdMyPrompts.UseVisualStyleBackColor = true;
+            this.rdMyPrompts.CheckedChanged += new System.EventHandler(this.myPromptTypeChanged_CheckedChanged);
+            // 
             // txtSearch
             // 
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Location = new System.Drawing.Point(3, 3);
+            this.txtSearch.Location = new System.Drawing.Point(0, 25);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(239, 23);
+            this.txtSearch.Size = new System.Drawing.Size(245, 23);
             this.txtSearch.TabIndex = 1;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 29);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 48);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(245, 450);
+            this.dataGridView1.Size = new System.Drawing.Size(245, 433);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
+            this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
             // 
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnEditPrompt});
+            this.btnEditPrompt,
+            this.btnDeletePrompt});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(108, 48);
             // 
             // btnEditPrompt
             // 
             this.btnEditPrompt.Name = "btnEditPrompt";
-            this.btnEditPrompt.Size = new System.Drawing.Size(180, 22);
+            this.btnEditPrompt.Size = new System.Drawing.Size(107, 22);
             this.btnEditPrompt.Text = "Edit";
+            this.btnEditPrompt.Click += new System.EventHandler(this.btnEditPrompt_Click_1);
+            // 
+            // btnDeletePrompt
+            // 
+            this.btnDeletePrompt.Name = "btnDeletePrompt";
+            this.btnDeletePrompt.Size = new System.Drawing.Size(107, 22);
+            this.btnDeletePrompt.Text = "Delete";
+            this.btnDeletePrompt.Click += new System.EventHandler(this.btnDeletePrompt_Click);
             // 
             // Form1
             // 
@@ -242,5 +280,8 @@
         private ToolStripButton btnAddPrompt;
         private ContextMenuStrip contextMenuStrip2;
         private ToolStripMenuItem btnEditPrompt;
+        private RadioButton radioButton2;
+        private RadioButton rdMyPrompts;
+        private ToolStripMenuItem btnDeletePrompt;
     }
 }

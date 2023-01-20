@@ -12,7 +12,7 @@ namespace ChatGPTDesktop.Services
 
         public BaseRepository(string idField)
         {
-            _file = $@"{_folder}\{nameof(TRepository)}.json";
+            _file = $@"{_folder}\{typeof(TRepository).Name}.json";
             _idField = idField;
             Initialise();
         }
@@ -59,6 +59,18 @@ namespace ChatGPTDesktop.Services
                 items.Add(item);
             }
             
+            SaveAll(items);
+        }
+
+        public void Delete(TEntity item)
+        {
+            var items = GetAll();
+            var result = items.AsQueryable().Where($@"{_idField} == ""{item.Id()}""").FirstOrDefault();
+            if (result != null)
+            {
+                items.Remove(result);
+            }
+
             SaveAll(items);
         }
     }
