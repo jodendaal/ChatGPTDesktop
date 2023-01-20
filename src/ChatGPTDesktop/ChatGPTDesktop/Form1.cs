@@ -1,6 +1,7 @@
 using ChatGPTDesktop.Models;
 using ChatGPTDesktop.Services;
 using System.Data;
+using System.Text.Json;
 
 namespace ChatGPTDesktop
 {
@@ -9,13 +10,15 @@ namespace ChatGPTDesktop
         bool _allowedToClose;
         List<ActPrompt> _actPrompts = new List<ActPrompt>();
         private readonly PromptHttpClient _promptClient;
-        private readonly IPromptsRespository _promptsRespository;
+        private readonly IAwsomePromptsRespository _promptsRespository;
+        private readonly IMyPromptsRespository _myPromptsRespository;
         ActPrompt _selectedItem;
-        public Form1(PromptHttpClient promptClient, IPromptsRespository promptsRespository)
+        public Form1(PromptHttpClient promptClient, IAwsomePromptsRespository promptsRespository,IMyPromptsRespository myPromptsRespository)
         {
             InitializeComponent();
             _promptClient = promptClient;
             _promptsRespository = promptsRespository;
+            _myPromptsRespository = myPromptsRespository;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -37,21 +40,31 @@ namespace ChatGPTDesktop
             notifyIcon1.ContextMenuStrip = contextMenuStrip1;
             btnShow.Click += BtnShow_Click;
             btnQuit.Click += BtnQuit_Click;
-            btnEditPrompt.Click += BtnEditPrompt_Click;
             LoadAsync();
         }
 
-        private void BtnEditPrompt_Click(object sender, EventArgs e)
+       
+
+        private void ShowPromptEditor(ActPrompt prompt)
         {
             using (frmAddPromptDialog addPrompt = new frmAddPromptDialog())
             {
-                if (addPrompt.ShowDialog(_selectedItem) == DialogResult.OK)
+                if (addPrompt.ShowDialog(prompt) == DialogResult.OK)
                 {
-                    var act = addPrompt.Prompt;
-                    _promptsRespository.Save(act);
-                    _actPrompts[_actPrompts.IndexOf(_selectedItem)] = act;
-                    dataGridView1.RefreshEdit();// = _actPrompts;
-                    dataGridView1.Refresh();
+                    SavePrompt(addPrompt.Prompt);
+
+                    var itemIndex = _actPrompts.IndexOf(prompt);
+                    if(itemIndex > 0)
+                    {
+                        _actPrompts[itemIndex] = addPrompt.Prompt;
+                        dataGridView1.RefreshEdit();
+                        dataGridView1.Refresh();
+                    }
+                    else
+                    {
+                        _actPrompts.Insert(0,prompt);
+                        LoadAsync();
+                    }
                 }
             }
         }
@@ -97,14 +110,29 @@ namespace ChatGPTDesktop
 
         private async void LoadAsync()
         {
-            _actPrompts = _promptsRespository.GetAll();
-            if(_actPrompts.Count == 0)
+            if (rdMyPrompts.Checked)
             {
-                _actPrompts = await _promptClient.GetPrompts();
-                _promptsRespository.SaveAll(_actPrompts);
+                _actPrompts = _myPromptsRespository.GetAll();
             }
 
-            dataGridView1.DataSource = _actPrompts;
+            if (radioButton2.Checked)
+            {
+                _actPrompts = _promptsRespository.GetAll();
+                if (_actPrompts.Count == 0)
+                {
+                    _actPrompts = await _promptClient.GetPrompts();
+                    _promptsRespository.SaveAll(_actPrompts);
+                }
+            }
+
+            BindData(_actPrompts);
+           
+        }
+
+        private void BindData(List<ActPrompt> prompts)
+        {
+            dataGridView1.DataSource = null;//This is for delete/refresh odd but it needed winforms :)
+            dataGridView1.DataSource = prompts;
             dataGridView1.Columns["Prompt"].Visible = false;
             dataGridView1.Columns["Act"].ToolTipText = "Prompt";
         }
@@ -113,22 +141,24 @@ namespace ChatGPTDesktop
         {
             if(e.ColumnIndex == 0)
             {
-                var text = dataGridView1.Rows[e.RowIndex].Cells["Prompt"].Value.ToString();
-                InjectPromptText(text);
+                var prompt = dataGridView1.Rows[e.RowIndex].DataBoundItem as ActPrompt;
+                InjectPromptText(prompt);
             }
         }
 
         private void AddScript()
         {
             var text = @"function setMessageText(message) {
-                            document.getElementsByTagName(""textarea"")[0].value = message;
+                            document.getElementsByTagName(""textarea"")[0].value = message.Prompt;
+                            return document.getElementsByTagName(""textarea"")[0];
                         }";
             webView.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync(text);
         }
 
-        private void InjectPromptText(string promptText)
+        private async Task InjectPromptText(ActPrompt prompt)
         {
-           webView.CoreWebView2.ExecuteScriptAsync($@"setMessageText('{promptText}')");
+           var functionCall = $@"setMessageText({JsonSerializer.Serialize(prompt)})";
+           var result = await webView.CoreWebView2.ExecuteScriptAsync(functionCall);
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -153,21 +183,19 @@ namespace ChatGPTDesktop
             splitContainer1.Panel1Collapsed = !splitContainer1.Panel1Collapsed;
         }
 
-        private void btnAddPrompt_Click(object sender, EventArgs e)
+        private void SavePrompt(ActPrompt prompt)
         {
-            using (frmAddPromptDialog addPrompt = new frmAddPromptDialog())
+            if (rdMyPrompts.Checked)
             {
-                if (addPrompt.ShowDialog() == DialogResult.OK)
-                {
-                    var act = addPrompt.Prompt;
-                    _promptsRespository.Save(act);
+                _myPromptsRespository.Save(prompt);
+            }
 
-                    _actPrompts.Insert(0,act);
-                    dataGridView1.RefreshEdit();
-                    dataGridView1.Refresh();
-                }
+            if (radioButton2.Checked)
+            {
+                _promptsRespository.Save(prompt);
             }
         }
+        
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -178,6 +206,73 @@ namespace ChatGPTDesktop
                 contextMenuStrip2.Show(Cursor.Position.X, Cursor.Position.Y);
                 _selectedItem = dataGridView1.Rows[e.RowIndex].DataBoundItem as ActPrompt;
             }
+        }
+
+        private void myPromptTypeChanged_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdMyPrompts.Checked)
+            {
+                LoadAsync();
+            }
+            
+        }
+
+        private void awsomePromptChanged_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked)
+            {
+                LoadAsync();
+            }
+            
+        }
+
+        private void btnDeletePrompt_Click(object sender, EventArgs e)
+        {
+            DeletePrompt();
+        }
+
+        private void DeletePrompt()
+        {
+            if (rdMyPrompts.Checked)
+            {
+                _myPromptsRespository.Delete(_selectedItem);
+            }
+
+            if (radioButton2.Checked)
+            {
+                _promptsRespository.Delete(_selectedItem);
+            }
+
+            var itemIndex = _actPrompts.IndexOf(_selectedItem);
+            //dataGridView1.Rows.RemoveAt(itemIndex);
+            _actPrompts.RemoveAt(itemIndex);
+            
+            //dataGridView1.DataSource = _actPrompts;
+            //dataGridView1.Refresh();
+            BindData(_actPrompts);
+            //dataGridView1.DataSource = _actPrompts;
+
+
+        }
+
+        private void btnEditPrompt_Click_1(object sender, EventArgs e)
+        {
+            ShowPromptEditor(_selectedItem);
+        }
+
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            
+        }
+
+        private void btnAddActPrompt_Click(object sender, EventArgs e)
+        {
+            ShowPromptEditor(new ActPrompt());
+        }
+
+        private void btnCopyPrompt_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(_selectedItem.Prompt);
         }
     }
 }
