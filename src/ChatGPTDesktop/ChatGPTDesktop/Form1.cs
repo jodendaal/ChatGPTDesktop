@@ -214,7 +214,6 @@ namespace ChatGPTDesktop
             {
                 LoadAsync();
             }
-            
         }
 
         private void awsomePromptChanged_CheckedChanged(object sender, EventArgs e)
@@ -223,7 +222,6 @@ namespace ChatGPTDesktop
             {
                 LoadAsync();
             }
-            
         }
 
         private void btnDeletePrompt_Click(object sender, EventArgs e)
@@ -244,15 +242,8 @@ namespace ChatGPTDesktop
             }
 
             var itemIndex = _actPrompts.IndexOf(_selectedItem);
-            //dataGridView1.Rows.RemoveAt(itemIndex);
             _actPrompts.RemoveAt(itemIndex);
-            
-            //dataGridView1.DataSource = _actPrompts;
-            //dataGridView1.Refresh();
             BindData(_actPrompts);
-            //dataGridView1.DataSource = _actPrompts;
-
-
         }
 
         private void btnEditPrompt_Click_1(object sender, EventArgs e)
