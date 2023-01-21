@@ -1,99 +1,164 @@
-﻿<HTML>
-  <HEAD>
-    <TITLE>Chat GPT Desktop</TITLE>
-    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8" />
-    <STYLE TYPE="text/css">
-<!--
-BODY{margin-top:20px; margin-left:20px; margin-right:20px; color:#000000; font-family:Tahoma; background-color:white}
-A:link {font-weight:normal; color:#000066; text-decoration:none}
-A:visited {font-weight:normal; color:#000066; text-decoration:none}
-A:active {font-weight:normal; text-decoration:none}
-A:hover {font-weight:normal; color:#FF6600; text-decoration:none}
-P {margin-top:0px; margin-bottom:12px; color:#000000; font-family:Tahoma}
-PRE {border-right:#f0f0e0 1px solid; padding-right:5px; border-top:#f0f0e0 1px solid; margin-top:-5px; padding-left:5px; font-size:x-small; padding-bottom:5px; border-left:#f0f0e0 1px solid; padding-top:5px; border-bottom:#f0f0e0 1px solid; font-family:Courier New; background-color:#e5e5cc}
-TD {font-size:12px; color:#000000; font-family:Tahoma}
-H2 {border-top: #003366 1px solid; margin-top:25px; font-weight:bold; font-size:1.5em; margin-bottom:10px; margin-left:-15px; color:#003366}
-H3 {margin-top:10px; font-size: 1.1em; margin-bottom: 10px; margin-left: -15px; color: #000000}
-UL {margin-top:10px; margin-left:20px}
-OL {margin-top:10px; margin-left:20px}
-LI {margin-top:10px; color: #000000}
-FONT.value {font-weight:bold; color:darkblue}
-FONT.key {font-weight: bold; color: darkgreen}
-.divTag {border:1px; border-style:solid; background-color:#FFFFFF; text-decoration:none; height:auto; width:auto; background-color:#cecece}
-.BannerColumn {background-color:#000000}
-.Banner {border:0; padding:0; height:8px; margin-top:0px; color:#ffffff; filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1,StartColorStr='#1c5280',EndColorStr='#FFFFFF');}
-.BannerTextCompany {font:bold; font-size:18pt; color:#cecece; font-family:Tahoma; height:0px; margin-top:0; margin-left:8px; margin-bottom:0; padding:0px; white-space:nowrap; filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2,OffY=2,Color='black',Positive='true');}
-.BannerTextApplication {font:bold; font-size:18pt; font-family:Tahoma; height:0px; margin-top:0; margin-left:8px; margin-bottom:0; padding:0px; white-space:nowrap; filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2,OffY=2,Color='black',Positive='true');}
-.BannerText {font:bold; font-size:18pt; font-family:Tahoma; height:0px; margin-top:0; margin-left:8px; margin-bottom:0; padding:0px; filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2,OffY=2,Color='black',Positive='true');}
-.BannerSubhead {border:0; padding:0; height:16px; margin-top:0px; margin-left:10px; color:#ffffff; filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1,StartColorStr='#4B3E1A',EndColorStr='#FFFFFF');}
-.BannerSubheadText {font:bold; height:11px; font-size:11px; font-family:Tahoma; margin-top:1; margin-left:10; filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2,OffY=2,Color='black',Positive='true');}
-.FooterRule {border:0; padding:0; height:1px; margin:0px; color:#ffffff; filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1,StartColorStr='#4B3E1A',EndColorStr='#FFFFFF');}
-.FooterText {font-size:11px; font-weight:normal; text-decoration:none; font-family:Tahoma; margin-top:10; margin-left:0px; margin-bottom:2; padding:0px; color:#999999; white-space:nowrap}
-.FooterText A:link {font-weight:normal; color:#999999; text-decoration:underline}
-.FooterText A:visited {font-weight:normal; color:#999999; text-decoration:underline}
-.FooterText A:active {font-weight:normal; color:#999999; text-decoration:underline}
-.FooterText A:hover {font-weight:normal; color:#FF6600; text-decoration:underline}
-.ClickOnceInfoText {font-size:11px; font-weight:normal; text-decoration:none; font-family:Tahoma; margin-top:0; margin-right:2px; margin-bottom:0; padding:0px; color:#000000}
-.InstallTextStyle {font:bold; font-size:14pt; font-family:Tahoma; a:#FF0000; text-decoration:None}
-.DetailsStyle {margin-left:30px}
-.ItemStyle {margin-left:-15px; font-weight:bold}
-.StartColorStr {background-color:#4B3E1A}
-.JustThisApp A:link {font-weight:normal; color:#000066; text-decoration:underline}
-.JustThisApp A:visited {font-weight:normal; color:#000066; text-decoration:underline}
-.JustThisApp A:active {font-weight:normal; text-decoration:underline}
-.JustThisApp A:hover {font-weight:normal; color:#FF6600; text-decoration:underline}
--->
+<html>
+  <head>
+    <title>Chat GPT Desktop</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      body {
+        position: relative;
+        margin: auto;
+      }
+      .container {
+        width: 100%;
+        margin: auto;
+        text-align: center;
+      }
 
-</STYLE>
+      h1 {
+        text-align: center;
+      }
 
-</HEAD>
-  <BODY>
-    <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="2" BORDER="0">
+      .install-button:active {
+        box-shadow: #3c4fe0 0 3px 7px inset;
+        transform: translateY(2px);
+      }
+      .install-button:hover {
+        box-shadow: rgb(45 35 66 / 40%) 0 4px 8px,
+          rgb(45 35 66 / 30%) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+        transform: translateY(-2px);
+      }
 
-<!-- Begin Banner -->
-<TR><TD><TABLE CELLPADDING="2" CELLSPACING="0" BORDER="0" BGCOLOR="#cecece" WIDTH="100%"><TR><TD><TABLE BGCOLOR="#1c5280" WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="0"><TR><TD CLASS="Banner" /></TR><TR><TD CLASS="Banner"><SPAN CLASS="BannerTextCompany">TimDoesTech</SPAN></TD></TR><TR><TD CLASS="Banner"><SPAN CLASS="BannerTextApplication">Chat GPT Desktop</SPAN></TD></TR><TR><TD CLASS="Banner" ALIGN="RIGHT" /></TR></TABLE></TD></TR></TABLE></TD></TR>
-<!-- End Banner -->
+      .install-button:focus {
+        box-shadow: #3c4fe0 0 0 0 1.5px inset, rgb(45 35 66 / 40%) 0 2px 4px,
+          rgb(45 35 66 / 30%) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+      }
+
+      .install-button {
+        width: 400px;
+        align-items: center;
+        appearance: none;
+        background-image: radial-gradient(
+          100% 100% at 100% 0,
+          #5adaff 0,
+          #5468ff 100%
+        );
+        border: 0;
+        border-radius: 6px;
+        box-shadow: rgb(45 35 66 / 40%) 0 2px 4px,
+          rgb(45 35 66 / 30%) 0 7px 13px -3px,
+          rgb(58 65 111 / 50%) 0 -3px 0 inset;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: inline-flex;
+        font-family: "JetBrains Mono", monospace;
+        height: 48px;
+        justify-content: center;
+        line-height: 1;
+        list-style: none;
+        overflow: hidden;
+        padding-left: 16px;
+        padding-right: 16px;
+        position: relative;
+        text-align: left;
+        text-decoration: none;
+        transition: box-shadow 0.15s, transform 0.15s;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        white-space: nowrap;
+        will-change: box-shadow, transform;
+        font-size: 18px;
+        
+      }
+
+        .dependency-list{
+            list-style: none;
+            
+        }
+
+     
+        .features-list > div{
+            margin-top: 5px;
+            font-weight: bold;
+        }
+       
+        .mt-10{
+            margin-top: 10px;
+        }
+
+        .small{
+            font-size: 12px;
+        }
+
+        .mt-30{
+            margin-top: 30px;
+        }
+
+        .social-footer {
+            padding: 1rem;
+            
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <img  src="assets/img/logo.svg" width="300px"/>
+      <h1>Chat GPT Desktop <br> <span class="small">by <a href="https://www.youtube.com/@TimDoesTech" >@TimDoesTech</a></span></h1>
+
+        <div>
+            <div class="features-list">
+                <h2>Features</h2>
+                <div>Save Custom Prompts</div>
+                <div>Edit and remove prompts</div>
+                <div>Access the Awsome ChatGPT prompts</div>
+                <div>Easily access, always at yor finger tips</div>
+                <div>Closes to notifcation area</div>
+                <div>Automatically updates</div>
+            </div>
+        </div>
 
 
-<!-- Begin Dialog -->
-<TR><TD ALIGN="LEFT"><TABLE CELLPADDING="2" CELLSPACING="0" BORDER="0" WIDTH="540"><TR><TD WIDTH="496">
+        <p class="mt-30">
+            The following prerequisites are required:
+            <ul class="dependency-list">
+                <li>.NET Desktop Runtime 6.0.11 (x64)</li>
+            </ul>
+            <div class="mt-10">
+                If these components are already installed, you can launch the application now.
+            </div>
+                   
+            <a class="install-button mt-10" href="ChatGPTDesktop.application">Launch </a>
 
-<!-- Begin AppInfo -->
-<TABLE><TR><TD COLSPAN="3">&nbsp;</TD></TR><TR><TD><B>Name:</B></TD><TD WIDTH="5"><SPACER TYPE="block" WIDTH="10" /></TD><TD>Chat GPT Desktop</TD></TR><TR><TD COLSPAN="3">&nbsp;</TD></TR><TR><TD><B>Version:</B></TD><TD WIDTH="5"><SPACER TYPE="block" WIDTH="10" /></TD><TD>1.0.0.34</TD></TR><TR><TD COLSPAN="3">&nbsp;</TD></TR><TR><TD><B>Publisher:</B></TD><TD WIDTH="5"><SPACER TYPE="block" WIDTH="10" /></TD><TD>TimDoesTech</TD></TR><tr><td colspan="3">&nbsp;</td></tr></TABLE>
-<!-- End AppInfo -->
+            <div class="mt-10">
+                 Otherwise, click the button below to install the prerequisites and run the application.
+            </div>
+        </p>
 
+        <div class="mt-10">
+            <A class="install-button" ID="InstallButton" HREF="setup.exe">Install</A></TD><TD width="20"><SPACER TYPE="block" WIDTH="20" HEIGHT="1" />
+        </div>
 
-<!-- Begin Prerequisites -->
-<TABLE ID="BootstrapperSection" BORDER="0"><TR><TD COLSPAN="2">The following prerequisites are required:</TD></TR><TR><TD WIDTH="10">&nbsp;</TD><TD><UL>
-<LI>.NET Desktop Runtime 6.0.11 (x64)</LI>
-</UL></TD></TR><TR><TD COLSPAN="2">
-If these components are already installed, you can <SPAN CLASS="JustThisApp"><A HREF="ChatGPTDesktop.application">launch</A></SPAN> the application now. Otherwise, click the button below to install the prerequisites and run the application.
-</TD></TR><TR><TD COLSPAN="2">&nbsp;</TD></TR></TABLE>
-<!-- End Prerequisites -->
+        <h3>Source</h3>
+        Code can be found <a href="https://github.com/jodendaal/ChatGPTDesktop">here</a>
+        
 
+        <h3>Demo</h3>
 
-</TD></TR></TABLE>
-<!-- Begin Buttons -->
-<TR><TD ALIGN="LEFT"><TABLE CELLPADDING="2" CELLSPACING="0" BORDER="0" WIDTH="540" STYLE="cursor:hand" ONCLICK="window.navigate(InstallButton.href)"><TR><TD ALIGN="LEFT"><TABLE CELLPADDING="1" BGCOLOR="#333333" CELLSPACING="0" BORDER="0"><TR><TD><TABLE CELLPADDING="1" BGCOLOR="#cecece" CELLSPACING="0" BORDER="0"><TR><TD><TABLE CELLPADDING="1" BGCOLOR="#efefef" CELLSPACING="0" BORDER="0"><TR><TD WIDTH="20"><SPACER TYPE="block" WIDTH="20" HEIGHT="1" /></TD><TD><A ID="InstallButton" HREF="setup.exe">Install</A></TD><TD width="20"><SPACER TYPE="block" WIDTH="20" HEIGHT="1" /></TD></TR></TABLE></TD></TR></TABLE></TD></TR></TABLE></TD><TD WIDTH="15%" ALIGN="right" /></TR></TABLE></TD></TR>
-<!-- End Buttons -->
-</TD></TR>
-<!-- End Dialog -->
-
-
-
-<!-- Spacer Row -->
-<TR><TD>&nbsp;</TD></TR>
-
-<TR><TD>
-<!-- Begin Footer -->
-<TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="0" BGCOLOR="#ffffff"><TR><TD HEIGHT="5"><SPACER TYPE="block" HEIGHT="5" /></TD></TR><TR><TD CLASS="FooterText" ALIGN="center">
-<A HREF="https://github.com/jodendaal/ChatGPTDesktop">TimDoesTech Customer Support</A>
-&nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
-<A HREF="https://go.microsoft.com/fwlink/?linkid=2146276">ClickOnce Resources</A>
-</TD></TR><TR><TD HEIGHT="5"><SPACER TYPE="block" HEIGHT="5" /></TD></TR><TR><TD HEIGHT="1" bgcolor="#cecece"><SPACER TYPE="block" HEIGHT="1" /></TD></TR></TABLE>
-<!-- End Footer -->
-</TD></TR>
-
-</TABLE>
-  </BODY>
-</HTML>
+      <iframe
+        width="100%"
+        height="600px"
+        src="https://www.youtube.com/embed/JMdG11NIaVA"
+        title="Super Charge ChatGPT"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+  
+    
+  </body>
+</html>
