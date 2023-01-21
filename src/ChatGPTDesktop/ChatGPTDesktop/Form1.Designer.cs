@@ -32,8 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnRefresh = new System.Windows.Forms.ToolStripButton();
             this.btnShowActPrompts = new System.Windows.Forms.ToolStripButton();
+            this.btnRefresh = new System.Windows.Forms.ToolStripButton();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnShow = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,16 +82,6 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // btnRefresh
-            // 
-            this.btnRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
-            this.btnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(23, 22);
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
             // btnShowActPrompts
             // 
             this.btnShowActPrompts.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -101,6 +91,16 @@
             this.btnShowActPrompts.Size = new System.Drawing.Size(23, 22);
             this.btnShowActPrompts.Text = "toolStripButton1";
             this.btnShowActPrompts.Click += new System.EventHandler(this.btnShowActPrompts_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+            this.btnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(23, 22);
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // notifyIcon1
             // 

@@ -36,6 +36,7 @@ namespace ChatGPTDesktop
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            splitContainer1.Panel1Collapsed = true;
             LoadPage();
             notifyIcon1.ContextMenuStrip = contextMenuStrip1;
             btnShow.Click += BtnShow_Click;
