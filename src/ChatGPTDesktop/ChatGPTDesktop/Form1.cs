@@ -7,6 +7,7 @@ namespace ChatGPTDesktop
 {
     public partial class Form1 : Form
     {
+        string _folder = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\ChatGPTDesktop";
         bool _allowedToClose;
         List<ActPrompt> _actPrompts = new List<ActPrompt>();
         private readonly PromptHttpClient _promptClient;
@@ -19,6 +20,13 @@ namespace ChatGPTDesktop
             _promptClient = promptClient;
             _promptsRespository = promptsRespository;
             _myPromptsRespository = myPromptsRespository;
+
+            if (!Directory.Exists(_folder))
+            {
+                Directory.CreateDirectory(_folder);
+            }
+
+            Environment.SetEnvironmentVariable("WEBVIEW2_USER_DATA_FOLDER", _folder);
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -93,6 +101,7 @@ namespace ChatGPTDesktop
 
         private async void LoadPage()
         {
+            
             await webView.EnsureCoreWebView2Async();
             AddScript();
             webView.CoreWebView2.Navigate("https://chat.openai.com/");
