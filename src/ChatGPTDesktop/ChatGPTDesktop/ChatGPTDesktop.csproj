@@ -13,7 +13,7 @@
     <PackageIcon>asterisk_orange.png</PackageIcon>
     <AssemblyVersion>1.0.0.5</AssemblyVersion>
     <FileVersion>1.0.0.5</FileVersion>
-    <ApplicationIcon>Designcontest-Ecommerce-Business-Chat.ico</ApplicationIcon>
+    <ApplicationIcon>chatgpt.ico</ApplicationIcon>
     <Product>Chat GPT Desktop</Product>
     <IsPublishable>True</IsPublishable>
     <PackageId>$(AssemblyName)</PackageId>
@@ -24,6 +24,10 @@
     <None Remove="asterisk_orange.ico" />
     <None Remove="comments32x32.ico" />
     <None Remove="Designcontest-Ecommerce-Business-Chat.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="chatgpt.ico" />
   </ItemGroup>
 
   <ItemGroup>
