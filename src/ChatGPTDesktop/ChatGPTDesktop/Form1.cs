@@ -38,6 +38,7 @@ namespace ChatGPTDesktop
         {
             splitContainer1.Panel1Collapsed = true;
             LoadPage();
+            LoadPlayGroundPage();
             notifyIcon1.ContextMenuStrip = contextMenuStrip1;
             btnShow.Click += BtnShow_Click;
             btnQuit.Click += BtnQuit_Click;
@@ -97,10 +98,17 @@ namespace ChatGPTDesktop
             webView.CoreWebView2.Navigate("https://chat.openai.com/");
         }
 
+        private async void LoadPlayGroundPage()
+        {
+            await webviewPlayGround.EnsureCoreWebView2Async();
+            webviewPlayGround.CoreWebView2.Navigate("https://beta.openai.com/playground");
+        }
+
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             LoadPage();
             LoadAsync();
+            LoadPlayGroundPage();
 
         }
 
@@ -150,8 +158,29 @@ namespace ChatGPTDesktop
         private void AddScript()
         {
             var text = @"function setMessageText(message) {
-                            document.getElementsByTagName(""textarea"")[0].value = message.Prompt;
-                            return document.getElementsByTagName(""textarea"")[0];
+                            let element = document.getElementsByTagName(""textarea"")[0];
+
+                            element.value = message.Prompt;
+                            element.focus();
+                        
+                            // Set the number of characters per line
+                            var charactersPerLine = 50;
+
+                            // Get the number of lines in the textarea
+                            var lines = element.value.split(""\n"").length;
+
+                            // Get the number of characters in the textarea
+                            var characters = element.value.length;
+
+                            // Calculate the number of lines needed based on the number of characters
+                            var linesNeeded = Math.ceil(characters / charactersPerLine);
+
+                            // Get the computed height of each line
+                            var lineHeight = parseFloat(getComputedStyle(element).lineHeight);
+
+                            // Set the height of the textarea based on the number of lines needed
+                            element.style.height = (linesNeeded * lineHeight) + ""px"";
+                          
                         }";
             webView.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync(text);
         }
@@ -215,7 +244,6 @@ namespace ChatGPTDesktop
             {
                 LoadAsync();
             }
-            
         }
 
         private void awsomePromptChanged_CheckedChanged(object sender, EventArgs e)
@@ -224,7 +252,6 @@ namespace ChatGPTDesktop
             {
                 LoadAsync();
             }
-            
         }
 
         private void btnDeletePrompt_Click(object sender, EventArgs e)
@@ -245,15 +272,8 @@ namespace ChatGPTDesktop
             }
 
             var itemIndex = _actPrompts.IndexOf(_selectedItem);
-            //dataGridView1.Rows.RemoveAt(itemIndex);
             _actPrompts.RemoveAt(itemIndex);
-            
-            //dataGridView1.DataSource = _actPrompts;
-            //dataGridView1.Refresh();
             BindData(_actPrompts);
-            //dataGridView1.DataSource = _actPrompts;
-
-
         }
 
         private void btnEditPrompt_Click_1(object sender, EventArgs e)
@@ -275,5 +295,12 @@ namespace ChatGPTDesktop
         {
             Clipboard.SetText(_selectedItem.Prompt);
         }
+
+        private void tabControl1_TabIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+      
     }
 }
